@@ -1,0 +1,5 @@
+load script 
+    - document.getElementById('log_auth').style.display = 'flex';
+
+loading 
+    - display = none ;

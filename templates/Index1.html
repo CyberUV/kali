@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon_io/favicon.ico') }}"  type="image/x-icon">
+
+    <title>Cybersecurity Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="container mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-6">Cybersecurity Dashboard</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="/breached-emails" class="block bg-gray-800 p-4 rounded-lg text-center hover:bg-gray-700">Breached Emails & Passwords</a>
+            <!-- <a href="/cve-exploits" class="block bg-gray-800 p-4 rounded-lg text-center hover:bg-gray-700">Latest CVEs & Exploits</a> -->
+            <a href="/wifi-data" class="block bg-gray-800 p-4 rounded-lg text-center hover:bg-gray-700">WiFi Data Extraction</a>
+            <a href="/ransomware-simulator" class="block bg-gray-800 p-4 rounded-lg text-center hover:bg-gray-700">Ransomware Simulator</a>
+            <!-- <a href="/c2-simulation" class="block bg-gray-800 p-4 rounded-lg text-center hover:bg-gray-700">C2 Simulation</a> -->
+            <!-- <a href="/firmware-scanner" class="block bg-gray-800 p-4 rounded-lg text-center hover:bg-gray-700">Firmware & Open Ports Scanner</a> -->
+            <a href="/modules/kali_simulator/index.html" class="bg-gray-800 hover:bg-gray-700 p-6 rounded-xl shadow-md transition duration-300">
+                <h3 class="text-lg font-semibold text-white mb-2"> Kali-Linux Simulator</h3>
+                <!-- <p class="text-sm text-gray-400">Web based control environment where user can experices the real interface of linux as a hacker POV.</p> -->
+              </a>
+            </
+        </div>
+    </div>
+</body>
+</html>
+

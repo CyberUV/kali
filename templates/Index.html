@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon_io/favicon.ico') }}" type="image/x-icon" />
+  <title>CyberSec Recon Toolkit</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Rubik', sans-serif;
+      position: relative;
+      z-index: 1;
+      --tw-bg-opacity: 1;
+  background-color: rgb(81, 80, 77);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+      background-image: url('https://about.fb.com/wp-content/uploads/2018/11/img_5150.png?w=1920'); /* or your custom image */
+      background-size: cover;
+      background-repeat: repeat;
+      opacity: 0.07; /* subtle & clean */
+    }
+  </style>
+</head>
+<body class=" text-gray-100 min-h-screen">
+
+  <header class="bg-gray-900 border-b border-gray-700">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-xl md:text-2xl font-semibold tracking-wide text-white">
+        CyberSec Recon & Defence Toolkit
+      </h1>
+      <span class="text-sm text-gray-400">Empowering Cyber Learning</span>
+    </div>
+  </header>
+
+  
+
+  <main class="max-w-6xl mx-auto px-6 py-10">
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-2 text-white">🧰 Available Modules</h2>
+      <p class="text-gray-400 mb-6">Explore hands-on cybersecurity tools designed for learning, red teaming, and network defense simulations.</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a href="/breached-emails" class="bg-gray-800 hover:bg-gray-700 p-6 rounded-xl shadow-md transition duration-300">
+          <h3 class="text-lg font-semibold text-white mb-2">🔐 Breached Emails & Passwords</h3>
+          <p class="text-sm text-gray-400">Check for leaked credentials and monitor data breaches.</p>
+        </a>
+
+        <a href="/cve-exploits" class="bg-gray-800 hover:bg-gray-700 p-6 rounded-xl shadow-md transition duration-300">
+          <h3 class="text-lg font-semibold text-white mb-2">🛠️ Real-Time CVE & Exploit Tracker</h3>
+          <p class="text-sm text-gray-400">Track latest vulnerabilities from NVD & ExploitDB sources.</p> 
+        </a>
+
+        <a href="/wifi-data" class="bg-gray-800 hover:bg-gray-700 p-6 rounded-xl shadow-md transition duration-300">
+          <h3 class="text-lg font-semibold text-white mb-2">🌐 University Wi-Fi Bypass</h3>
+          <p class="text-sm text-gray-400">Test techniques like DNS tunneling and MAC spoofing.</p>
+        </a>
+
+        <a href="/ransomware-simulator" class="bg-gray-800 hover:bg-gray-700 p-6 rounded-xl shadow-md transition duration-300">
+          <h3 class="text-lg font-semibold text-white mb-2">💀 Ransomware Simulator</h3>
+          <p class="text-sm text-gray-400">Simulate encryption techniques and decryption strategies.</p>
+        </a>
+<!-- 
+        <a href="/c2-simulation" class="bg-gray-800 hover:bg-gray-700 p-6 rounded-xl shadow-md transition duration-300">
+          <h3 class="text-lg font-semibold text-white mb-2">🎯 C2 Simulation</h3>
+          <p class="text-sm text-gray-400">Simulate Command & Control techniques with reverse shells.</p> 
+        </a>
+        -->
+
+        <!-- <a href="/firmware-scanner" class="bg-gray-800 hover:bg-gray-700 p-6 rounded-xl shadow-md transition duration-300">
+          <h3 class="text-lg font-semibold text-white mb-2">📡 Firmware & Port Scanner</h3>
+          <p class="text-sm text-gray-400">Scan for IoT vulnerabilities, open ports, and weak firmware.</p>
+        </a> -->
+
+        <a href="/c2-simulation" class="bg-gray-800 hover:bg-gray-700 p-6 rounded-xl shadow-md transition duration-300">
+          <h3 class="text-lg font-semibold text-white mb-2">🐉 Kali-Linux Simulator</h3>
+          <p class="text-sm text-gray-400">Web based control environment where user can experices the real interface of linux as a hacker POV.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="mt-12 text-sm text-gray-500 border-t border-gray-800 pt-6">
+      <p>Created for educational purposes. Use responsibly under ethical guidelines.</p>
+    </section>
+  </main>
+<!--  -->
+</body>
+</html>

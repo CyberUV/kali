@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>💀 Ransomware Simulator | CyberSec Toolkit</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Share Tech Mono', monospace;
+      background: radial-gradient(ellipse at center, #0f0f0f 0%, #000000 100%);
+      color: #00FF88;
+    }
+    .green-glow {
+      text-shadow: 0 0 5px #00FF88, 0 0 10px #00FF88;
+    }
+    input, textarea {
+      background-color: #111;
+      border: 1px solid #00ff88;
+      color: #00FF88;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #00ffcc;
+      box-shadow: 0 0 5px #00ffcc;
+    }
+    button {
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    button:hover {
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body class="min-h-screen p-8">
+
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl green-glow mb-8">💀 Ransomware Simulator</h1>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Encrypt -->
+      <div class="bg-black bg-opacity-70 p-6 rounded border border-green-600 shadow-lg">
+        <h2 class="text-xl mb-4 green-glow">🔐 Encrypt Directory</h2>
+        <label class="block mb-2">Target Folder Path:</label>
+        <input type="text" id="encryptPath" class="w-full p-2 mb-4 rounded" placeholder="/path/to/target" required>
+        <button onclick="simulateRansom('encrypt')" class="bg-green-700 hover:bg-green-600 px-4 py-2 rounded w-full">Encrypt</button>
+      </div>
+
+      <!-- Decrypt -->
+      <div class="bg-black bg-opacity-70 p-6 rounded border border-green-600 shadow-lg">
+        <h2 class="text-xl mb-4 green-glow">🔓 Decrypt Directory</h2>
+        <label class="block mb-2">Target Folder Path:</label>
+        <input type="text" id="decryptPath" class="w-full p-2 mb-4 rounded" placeholder="/path/to/encrypted" required>
+        <button onclick="simulateRansom('decrypt')" class="bg-red-700 hover:bg-red-600 px-4 py-2 rounded w-full">Decrypt</button>
+      </div>
+    </div>
+
+    <!-- Drop Ransom Note -->
+    <div class="mt-10 bg-black bg-opacity-70 p-6 rounded border border-green-600 shadow-lg">
+      <h2 class="text-xl mb-4 green-glow">📄 Drop Ransom Note</h2>
+
+      <label class="block mb-2">Target Path:</label>
+      <input type="text" id="notePath" class="w-full p-2 mb-4 rounded" placeholder="/path/to/target" required>
+
+      <label class="block mb-2">Note Content:</label>
+      <textarea id="noteContent" class="w-full p-2 mb-4 h-32 rounded" placeholder="Your files have been encrypted... Pay 1 BTC to decrypt." required></textarea>
+
+      <button onclick="simulateRansom('note')" class="bg-yellow-600 hover:bg-yellow-500 px-4 py-2 rounded w-full">Drop Note</button>
+    </div>
+
+    <!-- Status Message -->
+    <div id="status" class="mt-6 text-center green-glow text-lg"></div>
+  </div>
+
+  <script>
+    function simulateRansom(mode) {
+      let path = '';
+      let note = '';
+
+      if (mode === 'encrypt') {
+        path = document.getElementById('encryptPath').value;
+      } else if (mode === 'decrypt') {
+        path = document.getElementById('decryptPath').value;
+      } else if (mode === 'note') {
+        path = document.getElementById('notePath').value;
+        note = document.getElementById('noteContent').value;
+      }
+
+      fetch('/ransomware-simulator', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ path: path, mode: mode, ransomeNote: note })
+      })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('status').innerText = data.message || "✅ Operation completed.";
+      })
+      .catch(err => {
+        document.getElementById('status').innerText = "[-] Error: " + err.message;
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+/* .loading {
+    background-color: black;
+    color: #0f0;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    /* height: 100vh;
+    margin: 0; */
+/* } */ 
+
+.booting-container {
+    width: 80%;
+    max-width: 600px;
+}
+
+#booting-text {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.loading {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    color: #0f0;
+    background-color: black;
+    z-index: 100000;
+}
+.log_auth {
+    position: absolute;
+    background-color: #272935;
+    background-image: url(./img/logout_back.jpg); 
+     /* background-size: contain; */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* background-clip: content-box; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    color: #ececec;
+    justify-content: center;
+    align-content: center;
+    width: 300px;
+    border-radius: 32px;
+}
+.login_logo {
+    width: 50px;
+}
+.login_top {
+    display: flex;
+    background-color: #ececec82;
+    justify-content: center;
+    align-items: center;
+    height: 107px;
+}
+.login_left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 27px;
+}
+.login_right {
+    color: #ececec;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    /* margin: 16px; */
+  
+}
+#passwd {
+    background: #ffffff59;
+    color: #2a2929;
+    border: none;
+}
+.inp_lg {
+    background: #ffffff59;
+    margin-bottom: 5px;
+    color: #2a2929;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border: none;
+    width: 161px;
+    border-radius: 5px;
+    padding: 2px 8px;
+    box-shadow: 2px 2px 5px #5e5c5c;
+  height: 25px;
+  outline: none;
+}
+.login_bottom {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* margin-top: 23px; */
+    background-color: #ececec;
+    height: 60px;
+}
+.login_btn {
+    width: 68px;
+    height: 25px;
+    color: grey;
+    border-radius: 6px;
+    border: none;
+    box-shadow: 0 0 5px gray;
+    cursor: pointer;
+}
+.login_btn:hover {
+    scale: 1.05;
+}
+#page_start:hover {
+    background: blue;
+}
+#page_start:active {
+    scale: 1;
+}
+#wrong_login {
+    display: flex;
+    justify-content: center;
+  align-content: center;
+  height: 23px;
+  background: #f05d45;
+  padding-top: 4px;
+  display: none;
+}
+
+.signout_div {
+    position: absolute;
+    display: flex;
+    height: 96vh;
+    width: 97vw;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+    padding: 10px;
+    z-index: 1000;
+    top: 0;
+    display: none;
+}
+.terminal_win9 {
+    font-family: "Sofia Sans", sans-serif;
+  position: absolute;
+  background-color: #23252e;
+  width: 336px;
+  /* height: 34%; */
+  /* overflow-y: scroll;
+  overflow-x: scroll; */
+  min-width: 335px;
+  max-width: 585px;
+  min-height: 80px;
+  display: flex;
+  color: #ececec;
+  padding: 10px;
+  flex-direction: column;
+}
+.win8_title {
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  font-weight: 502;
+}
+.win8_img_span {
+    display: flex;
+    /* flex-direction: row; */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.win8_img {
+    width: 85px;
+    box-shadow: 0 0 4px black;
+    margin: 5px;
+}
+.win8_img:hover {
+    scale: 1.02;
+}
+.win8_imgb {
+    width: 128px;
+    margin: 9px;
+    box-shadow: 0 0 4px black;
+}
+.win8_imgb:hover {
+    scale: 1.02;
+}
+.win8_img:active {
+    scale: 1.0;
+}
+.win8_imgb:active {
+    scale: 1.0;
+}
+
+.win8_all_img:hover {
+    scale: 1.05;
+    cursor: pointer;
+}
+.win8_all_img:active {
+    scale: 1.02;
+}
+
+.close_signout_div {
+    width: 82%;
+    border: none;
+  border-radius: 4px;
+  height: 28px;
+  font-style: "Sofia Sans", sans-serif;
+  background: #323643;
+  color: white;
+  font-weight: 600;
+  margin: 3px 0px;
+}

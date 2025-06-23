@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kali Linux</title>
+    <link rel="shortcut icon" href="./img/kali_logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/firefox.css">
+    <link rel="stylesheet" href="./styles/load_styles.css">
+</head>
+<body>
+
+<div class="loading" id="loading">
+        <pre id="booting-text"></pre>
+</div>
+ 
+<div class="bg_div">
+        <div><h1 class="bg_logo">KALI LINUX<p style="font-size: 17px; text-align: center; padding: 0; margin: 0;">"the quieter you become, the more you are able to hear"</p></h1>
+        </div>
+
+</div>
+
+<!-- Main part for the profile -->
+
+<div class="main">
+        <div class="header" style="user-select: none;">
+            <div class="left_header">
+                <img src="img/kali_home.png" class="kali_icon" alt="kali_home" title="Kali Home" >
+                <span style="color: white; font-size: 27px; margin-left: 4px; margin-right: 2px; user-select: none;">|</span>
+                <img src="./img/firefox.png"  class="kali_icon" id="main_ter3_icon" title="Firefox" alt="firefox">
+                <img src="./img/terminal.png" alt="" class="kali_icon" id="header_ter_icon" title="Terminal" >
+                <img src="./img/s_root_ter.png" alt="" class="kali_icon" id="root_ter_icon" title="Root Terminal Emulator" >
+            </div>
+            <div class="center_header" id="center_header" title="Task TODO" style="z-index: 20;" onclick="ShowTodo()" onmouseout="DonotShowTodo()">
+                <div id="MyClockDisplay" class="clock" onload="showTime()">
+                </div>
+            </div>
+            <div class="right_header">
+                <img src="./img/other_right.png" style="height: 32px; mix-blend-mode: lighten; user-select: none;" class="other_right" alt="">
+                <img src="./img/lock_btn.png" style="height: 32px;" class="kali_icon" alt="" title="Logout User">
+                <img src="./img/shut_btn.png" style="height: 32px;" alt="" class="kali_icon" id="kali_icon" title="Signout User">
+            </div>
+        </div>
+    <!-- This part for Icons in window  -->
+    
+    <div class="main_icon" style="user-select: none;">
+        <div class="main_ter main_icons" id="main_ter">
+            <img src="./img/ter_icon.png" alt="" class="main_icons_img">
+            <strong class="main_icons_text">Terminal</strong>
+        </div>
+        <div class="main_ter2 main_icons" id="main_ter2">
+            <img src="./img/ter_icon.png" alt="" class="main_icons_img">
+            <strong class="main_icons_text">Payload Execution</strong>
+        </div>
+        <div class="main_fire main_icons" id="main_ter3">
+            <img src="./img/firefox-57-70.496x512.png" alt="" class="main_icons_img">
+            <strong class="main_icons_text">Firefox</strong>
+        </div>
+        <div class="main_file main_icons" id="main_ter4">
+            <img src="./img/file_icon.png"  class="main_icons_img" alt="">
+            <strong class="main_icons_text">Home
+            </strong>
+        </div>
+        <div class="main_file main_icons" id="main_ter5">
+            <img src="./img/root_ter.png"  class="main_icons_img" alt="">
+            <strong class="main_icons_text">Root Terminal
+            </strong>
+        </div>
+        <div class="main_file main_icons" id="main_ter6">
+            <img src="./img/image_icon.png"  class="main_icons_img" alt="">
+            <strong class="main_icons_text">Resume
+            </strong>
+        </div>
+
+    </div>
+
+    <!-- Different Windows for actions -->
+    <div class="window_action terminal_win" id="terminal_win">
+         <div class="win_header" style="user-select: none;">
+                <div class="win_header_left">
+                    <img src="./img/ter_icon.png" alt="" class="win_header_icon">
+                </div>
+                <div class="win_header_center">
+                    <span class="win_header_name">root@kali: /home/kali</span>
+                </div>
+                <div class="win_header_right">
+                    <span class="minimize win_tool" id="minimize">–</span>
+                    <span class="maximize win_tool" id="maximize">▢</span>
+                    <span class="close win_tool" id="close">x</span>
+                </div>
+            </div>
+            <div class="win_content">
+                    <span class="root"  style='color: blue; margin-right: 5px;'>(root@kali)-[/home/kali/]  </span>
+                    <span class="root_kali" id="root_kali"></span>
+                    <span class="code_area" id="code_area" style="letter-spacing: 1px;"></span>
+                    <span class="code_pointer">||</span>
+                </div>
+                <div class="resizer"></div> 
+    </div>
+
+    <!-- Terminal For payload  -->
+
+    <div class="window_action terminal_win2" id="terminal_win2">
+        <div class="win_header win_header2" style="user-select: none;">
+               <div class="win_header_left">
+                   <img src="./img/ter_icon.png" alt="" class="win_header_icon">
+               </div>
+               <div class="win_header_center">
+                   <span class="win_header_name">root@kali: /home/kali/payload/</span>
+               </div>
+               <div class="win_header_right">
+                   <span class="minimize win_tool" id="minimize2">–</span>
+                   <span class="maximize win_tool" id="maximize2">▢</span>
+                   <span class="close win_tool" id="close2">x</span>
+               </div>
+           </div>
+           <div class="win_content">
+            <span class="root"  style='color: blue; margin-right: 5px;'>(root@kali)-[/home/kali/payload/]  </span>
+                   <span class="root_kali" id="root_kali2" > </span>
+                   <span class="code_area" id="code_area2" style="letter-spacing: 1px;"></span>
+                   <span class="code_pointer">||</span>
+               </div>
+               <div class="resizer2"></div> 
+    </div>
+
+    <!-- Firefox for video -->
+    <div class="window_action terminal_win3" id="terminal_win3">
+        <div class="win_header win_header3" id="firefox_header" style="user-select: none;">
+               <div class="win_header_left">
+                   <img src="./img/firefox-57-70.496x512.png" alt="" class="win_header_icon">
+               </div>
+               <div class="win_header_center">
+                   <span class="win_header_name" >root@kali Firefox </span>
+               </div>
+               <div class="win_header_right">
+                   <span class="minimize win_tool fire_tool" id="minimize3">—</span>
+                   <span class="maximize win_tool fire_tool" id="maximize3">▢</span>
+                   <span class="close win_tool fire_tool" id="close3">X</span>
+               </div>
+        </div>
+        <div class="win_content firefox_content">
+            <video class="myVideo" id="myVideo" autoplay >
+                <source src="./img/firefox_com.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+               <div class="resizer3"></div> 
+    </div>
+
+    <!-- What to do task bar for guide -->
+        <div class="window_action terminal_win4" id="terminal_win4" style="z-index: 100008;">
+            <div class="win_header win_header4">
+                <div class="win_header_center todo_header">
+                    <span class="win_header_name" style="user-select: none;">Today's Task</span>
+                </div>
+            </div>
+            <div class="win_content todo_content">
+                <span class="todo_area" id="code_area4" style="letter-spacing: 1px;">
+                        <li class="todo_line">Today's Target Name <font color="#0f0">Rudraksh Yadav</font> </li>
+                        <li class="todo_line">Lets create a <font color="#0f0">payload</font>  to gather Info about our target</li>
+                        <li class="todo_line">Lets Create a tricky payload using python in <font color="#0f0">Terminal</font> </li>
+                        
+                </span>
+        </div>
+    </div>
+
+
+    <!-- Authnatication window for terminal 5 or root privilage -->
+<div class="lock_div" id="lock_div">
+    <div class="window_action6 terminal_win6" id="terminal_win6">
+        <div class="win_header win_header6" style="user-select: none;">
+               <div class="win_header_left">
+                   <img src="./img/dragon.png" alt="" class="win_header_icon">
+               </div>
+               <div class="win_header_center">
+                   <span class="auth_header_name">Authenticate</span>
+               </div>
+               <div class="win_header_right">
+                   <span class="minimize win_tool" id="minimize6">–</span>
+                   <span class="close win_tool" id="close6">x</span>
+               </div>
+           </div>
+           <div class="win_content6">
+                <div class="auth_top">
+                    <div class="auth_logo">
+                        <img src="./img/dragon.png" alt="" class="auth_logo_img">
+                    </div>
+                    <div class="auth_text">
+                        <div class="l_auth_text">Authentication is required to run /usr/bin/x-terminal-emulator as root</div>
+                        <div class="s_auth_text">An application is attempting to perform an action that requires privileges. Authentication is required to perform this action.</div>
+                        <div class="auth_bottom">
+                            <span class="s_auth_text">Password: </span>
+                            <input type="password" name="kali_pass" id="kali_pass">
+                        </div>
+                        <div class="wrong_pass" id="wrong_pass">Authentication Failed- Wrong Password</div>
+                    </div>
+                </div>
+                <div class="auth_submit">
+                        <details >
+                            <span>
+                                Action: <a href="https://www.kali.org/docs/policy/kali-linux-user-policy/">org.kali.pkexec.x-terminal-emulator</a><br>
+                            </span><span style="margin-top: 100px;">
+                                Vendor: <a href="https://www.kali.org/">Kali Linux</a>
+                            </span>
+                        </details>
+                        <div class="auth_submit_btn">
+                            <button class="cancel auth_btn">
+                                <span class="circle_outer">
+                                    <span class="circle"></span>
+                                </span>
+                                Cancel</button>
+                            <button type="submit" class="authenticate auth_btn" id="authenticate">Authenticate</button>
+                        </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+    <!-- Terminal for exploitation -->
+
+    <div class="window_action terminal_win5" id="terminal_win5">
+        <div class="win_header win_header5" style="user-select: none;">
+               <div class="win_header_left">
+                   <img src="./img/root_ter.png" alt="" class="win_header_icon">
+               </div>
+               <div class="win_header_center">
+                   <span class="win_header_name">root@kali: ~</span>
+               </div>
+               <div class="win_header_right">
+                   <span class="minimize win_tool" id="minimize5">–</span>
+                   <span class="maximize win_tool" id="maximize5">▢</span>
+                   <span class="close win_tool" id="close5">x</span>
+               </div>
+           </div>
+           <div class="win_content">
+            <span class="root"  style='color: red; margin-right: 5px; letter-spacing: 2px;'>(root@kali)-[~]  </span>
+                   <span class="root_kali" id="root_kali5" > </span>
+                   <span class="code_area" id="code_area5" style="letter-spacing: 1px;"></span>
+                   <span class="code_pointer">||</span>
+               </div>
+               <div class="resizer5"></div> 
+    </div>
+
+    <!-- File manager Part terminal 7 -->
+<!-- <img src="./clone/Screenshot 2024-07-04 215932.png" style="position: absolute; bottom: 5px; right: 5px; width: 500px; z-index: 1000;" alt=""> -->
+    <div class="window_action terminal_win7" id="terminal_win7">
+        <div class="win_header win_header7" style="user-select: none;">
+            <!-- part 1 -->
+            <div class="win7_part1">
+                <div class="win_header_left">
+                    <img src="./img/file_icon.png" alt="" class="win_header_icon">
+                </div>
+                <div class="win_header_center">
+                    <span class="win_header_name">kali-Thunar</span>
+                </div>
+                <div class="win_header_right">
+                    <span class="minimize win_tool" id="minimize7">–</span>
+                    <span class="maximize win_tool" id="maximize7">▢</span>
+                    <span class="close win_tool" id="close7">x</span>
+                </div>
+            </div>
+            <!-- part 2 -->
+             <div class="win7_part2">
+                <button class="win7_part2_btn">File</button>
+                <button class="win7_part2_btn">Edit</button>
+                <button class="win7_part2_btn">View</button>
+                <button class="win7_part2_btn">Go</button>
+                <button class="win7_part2_btn">Bookmarks</button>
+                <button class="win7_part2_btn">Help</button>
+
+             </div>
+             <!-- part 3 -->
+              <div class="win7_part3">
+                <div class="arrows">
+                    <div class="arrow1 arrow"><img class="arrow_img arrow_img1" src="./img/arrow.png" alt=""></div>
+                    <div class="arrow2 arrow"><img class="arrow_img arrow_img2" src="./img/arrow.png" alt=""></div>
+                    <div class="arrow2 arrow"><img class="arrow_img arrow_img3" src="./img/arrow.png" alt=""></div>
+                    <div class="arrows"><img src="./img/home_icon.png" alt="" class="arrow_img"></div>
+                </div>
+                <div class="navigation">
+                    <div class="back_arrow">‹</div>
+                    <div class="dir_name dir_name1" id="dir_name1">kali</div>
+                    <div class="dir_name dir_name2" id="dir_name2">home</div>
+                </div>
+                <div class="search">
+                    <div class="forward_arrow">‹</div>
+                    <img src="./img/search.png" alt="" width="15px" class="search_img"></div>
+              </div>
+
+        </div>
+           <div class="win_content win_content7">
+                    <div class="win7_left">
+                        <div class="main_name" id="place" >Places</div>
+
+                        <!-- <div class="side_dir" id="place1" >Computer</div> -->
+                        <div class="side_dir" id="place2" >kali</div>
+                        <div class="side_dir" id="place3" >Desktop</div>
+                        <div class="side_dir" id="place4" >Recent</div>
+                        <div class="side_dir" id="place5" >Trash</div>
+                        <div class="side_dir" id="place6" >Documents</div>
+                        <div class="side_dir" id="place7" >Music</div>
+                        <div class="side_dir" id="place8" >Pictures</div>
+                        <div class="side_dir" id="place9" >Downloads</div>
+
+                        <div class="main_name" id="place" >Devices</div>
+                        <div class="side_dir" id="place10" >File System</div>
+                        <div class="main_name" id="place" >Network</div>
+                    </div>
+                    <!-- different files in file manager -->
+                    <div class="win7_right">
+                        <div class="main_file main_icons main_icons_fm" id="main_ter6 main_icons_fm1">
+                            <img src="./img/image_icon.png"  class="main_icons_img" alt="">
+                            <strong class="main_icons_text">Resume
+                            </strong>
+                        </div>
+                        <img src="./img/resume.png" alt="Downloadable Image" id="downloadImage" style="width: 300px; height: auto;" draggable="true">
+
+                    </div>
+            </div>
+               <div class="resizer7"></div> 
+    </div>
+
+
+    <!-- Firefox Terminal for different work -->
+    <div class="window_action terminal_win8" id="terminal_win8">
+        <div class="win_header win_header8" style="user-select: none;">
+               <div class="win_header_left">
+                   <img src="./img/firefox-57-70.496x512.png" alt="" class="win_header_icon">
+               </div>
+               <div class="win_header_center">
+                   <span class="win_header_name"> </span>
+               </div>
+               <div class="win_header_right">
+                   <span class="minimize win_tool fire_tool" id="minimize8">–</span>
+                   <span class="maximize win_tool fire_tool" id="maximize8">▢</span>
+                   <span class="close win_tool fire_tool" id="close8">x</span>
+               </div>
+           </div>
+           <div class="win_content win8_content">
+            <div class="win8_top">
+                <img src="./img/firefox-57-70.496x512.png" alt="" class="win8_icon"> <span class="win8_top_title">Firefox</span>
+            </div>
+            <div class="win8_center"><img src="https://cdn4.iconfinder.com/data/icons/logos-brands-7/512/google_logo-google_icongoogle-512.png" alt="" class="win8_center_img"><input type="text" class="win8_center_inp" placeholder="Search with Google or email address"></div>
+            <div class="win8_bottom"><h1>google</h1></div>
+            </div>
+               <div class="resizer8"></div> 
+    </div>
+
+
+    <!-- Kali loading / login screen -->
+        <div class="log_auth" id="log_auth">
+        <!-- <img src="./img/logout_back.jpg" class="log_auth_img" id="log_auth_img" alt=""> -->
+        <div class="login">
+            <div class="login_top">
+                <div class="login_left">
+                    <img src="./img/kali_logo.png" class="login_logo" alt="">
+                </div>
+                <div class="login_right" >
+                    <input type="text" name="username" class="inp_lg" id="username" placeholder="Enter your username">
+                    <input type="password" name="passwd" class="inp_lg" id="passwd" placeholder="Enter your password">
+                </div>
+            </div>
+            <div class="wrong_login" id="wrong_login">Wrong Username or Password</div>
+            <div class="login_bottom">
+                <button class="login_btn" id="page_close" >Close</button><button class="login_btn" id="page_start" style="background-color: #4a4af3;  color: white;">Log In</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signout logout lock terminal 9 -->
+    <div class="signout_div" id="signout_div" >
+        <div class="terminal_win9" id="terminal_win9">
+            <span class="win8_title">Log out kali</span>
+            <span class="win8_img_span">
+                <img src="./img/sin_logout.png" alt="" class=" win8_all_img win8_img" id="win8_lockbtn">
+                <img src="./img/sin_restart.png" alt="" class=" win8_all_img win8_img" id="win8_restartbtn">
+                <img src="./img/sin_shutdown.png" alt="" class=" win8_all_img win8_img" id="win8_shutbtn"><br>
+                <img src="./img/sin_suspend.png" alt="" class=" win8_all_img win8_imgb">
+                <img src="./img/sin_switchuser.png" alt="" class=" win8_all_img win8_imgb"><br>
+                <button class="close_signout_div win8_all_img" id="close_signout_div">Close</button>
+
+            </span>
+        </div>
+    </div>
+    
+    
+</div>
+    
+    
+
+    <script src="./script.js"></script>
+    <script src="./code_script.js"></script>
+    <script src="./firefox_video.js"></script>
+    <script src="./file_mng.js"></script>
+    <script src="./part1.js"></script>
+    <script src="./extra_scripts/todo_script.js"></script>
+    <script src="./extra_scripts/manage_script.js"></script>
+</body>
+</html>

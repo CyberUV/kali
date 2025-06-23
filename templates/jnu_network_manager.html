@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wi-Fi Data Extraction | CyberSec Toolkit</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Share Tech Mono', monospace;
+      /*background-image: url('/static/images/cyber-bg.png');  Use a matrix-style background */
+      background-size: cover;
+      background-position: center;
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.85);
+    }
+  </style>
+</head>
+<body class="text-green-400 min-h-screen overlay">
+
+  <div class="max-w-5xl mx-auto py-10 px-6">
+    <h1 class="text-3xl md:text-4xl font-bold mb-6 border-b border-green-500 pb-2">
+      🌐 University Wi-Fi Recon Tool
+    </h1>
+
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <!-- Connected Network -->
+      <div class="bg-black bg-opacity-60 p-6 rounded-lg border border-green-600 shadow-lg">
+        <h2 class="text-xl font-semibold text-green-300 mb-3">📶 Connected Network</h2>
+        <div class="text-sm leading-relaxed">
+          <p><span class="text-green-500">SSID:</span> <span id="connected-ssid">Loading...</span></p>
+          <p><span class="text-green-500">Authentication:</span> <span id="connected-auth">Loading...</span></p>
+        </div>
+      </div>
+
+      <!-- Available Networks -->
+      <div class="bg-black bg-opacity-60 p-6 rounded-lg border border-green-600 shadow-lg">
+        <h2 class="text-xl font-semibold text-green-300 mb-3">📡 Available Wi-Fi Networks</h2>
+        <ul id="available-networks" class="text-sm list-disc list-inside text-green-200">
+          <li>Loading networks...</li>
+        </ul>
+        <button class="mt-4 bg-green-700 hover:bg-green-600 px-4 py-2 rounded text-white text-sm" onclick="scanNetworks()">
+          🔁 Rescan
+        </button>
+      </div>
+    </div>
+
+    <div class="mt-10 bg-black bg-opacity-60 p-6 rounded-lg border border-green-600 shadow-lg">
+      <h3 class="text-lg font-medium mb-4 text-green-300">🔍 Saved Wi-Fi Profiles</h3>
+      <ul id="wifi-history" class="text-green-200 text-sm list-inside list-disc">
+        <li>Loading history...</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    async function scanNetworks() {
+      document.getElementById("available-networks").innerHTML = "<li>Scanning...</li>";
+      // You'd typically fetch this from a backend route like /scan-wifi
+      const data = await fetch("/api/wifi").then(res => res.json());
+      const list = document.getElementById("available-networks");
+      list.innerHTML = "";
+      data.available.forEach(net => {
+        const item = document.createElement("li");
+        item.textContent = `${net.ssid} (${net.auth})`;
+        list.appendChild(item);
+      });
+    }
+
+    async function loadConnectedNetwork() {
+      const data = await fetch("/api/wifi-connected").then(res => res.json());
+      console.log(data);
+      document.getElementById("connected-ssid").textContent = data.ssid || "None";
+      document.getElementById("connected-auth").textContent = data.auth || "Unknown";
+    }
+
+    async function loadHistory() {
+      const data = await fetch("/api/wifi-history").then(res => res.json());
+      const list = document.getElementById("wifi-history");
+      list.innerHTML = "";
+      data.history.forEach(profile => {
+        const item = document.createElement("li");
+        item.textContent = `${profile.ssid} (${profile.auth})`;
+        list.appendChild(item);
+      });
+    }
+
+    // Initial load
+    loadConnectedNetwork();
+    scanNetworks();
+    loadHistory();
+  </script>
+</body>
+</html>
